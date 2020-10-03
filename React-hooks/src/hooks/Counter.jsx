@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useDocumentTitle from './useDocumentTitle';
 
-export default function Counter() {
+export default function Counter(props) {
   //não usar hooks com loops, nest functions e if statement
   const [count, setCount] = useState(0);
   const [name, setName] = useState('');
 
-  //useEffect = toda vez que o componente renderizar
-  useEffect(() => {
-    document.title = `${name} has cliked ${count} times`;
+  useDocumentTitle(`${name} has cliked ${count} times`);
+  /* //useEffect = toda vez que o componente renderizar
+useEffect(() => {
+  document.title = `${name} has cliked ${count} times`;
 
-    return () => {
-      console.log('Clean up'); //chamdo toda vez que renderiza
-      //componenteWillUnmount
-    };
-  }, [count, name]); //array de dependencias = só muda quando o valor passado no array mudar
+  return () => {
+    console.log('Clean up'); //chamdo toda vez que renderiza
+    //componenteWillUnmount
+  };
+}, [count, name]); //array de dependencias = só muda quando o valor passado no array mudar */
 
   return (
     <>

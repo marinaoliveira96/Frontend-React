@@ -1,16 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Movie from './hoc/Movie';
-import Counter from './hooks/Counter';
+import React, { Component } from 'react';
+import MoviePage from './context/MoviePage';
+import UserContext from './context/userContext';
 
-function App() {
-  return (
-    <>
-      {/*  <Movie id={1} /> */}
-      <Counter />
-    </>
-  );
+export default class App extends Component {
+  state = { currentUser: { name: 'Marina ' } };
+  render() {
+    return (
+      <UserContext.Provide value={this.state.currentUser}>
+        <div>
+          <MoviePage />
+        </div>
+      </UserContext.Provide>
+    );
+  }
 }
-
-export default App;
