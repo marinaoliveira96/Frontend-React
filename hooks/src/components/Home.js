@@ -1,11 +1,12 @@
 import UseRef from '../hooks/UseRef';
-import UseReducer from '../hooks/UseReducer';
+import UseCallback from '../hooks/UseCallback';
+
 const Home = () => {
   return (
     <div>
       <h1>React Hooks</h1>
 
-      <UseReducer />
+      <UseCallback />
     </div>
   );
 };
